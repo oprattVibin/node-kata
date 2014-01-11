@@ -7,12 +7,17 @@ program
   .option('-u, --url', 'Root url to crawl')
   .parse(process.argv);
 
-request(program.url, function(err, res, body) {
-  if (err) console.log(err);
-  else {
-    // read page
-    $ = cheerio.load(body);
-    // get all anchors using cheerio
-    var anchors = $('a').attr('href');
-  }
-});
+function crawl(url) {
+  request(url, function(err, res, body) {
+    if (err) console.log(err);
+    else {
+      // read page
+      $ = cheerio.load(body);
+      // get all anchors using cheerio
+      var anchors = $('a').attr('href');
+      anchors.forEach(crawl);
+    }
+  });
+}
+
+crawl(program.url);
