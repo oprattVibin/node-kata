@@ -11,20 +11,20 @@ var visited = {};
 
 function crawl(url) {
   if (visited[url]) return;
+  visited[url] = true;
   request(url, function(err, res, body) {
     if (err) console.log(err);
     else {
-      // read page
+      // do something with content (body) of the page
+      
+      // load page
       $ = cheerio.load(body);
+      
       // get all anchors using cheerio
       var anchors = $('a').attr('href');
       anchors.forEach(crawl);
-      anchors.forEach(function (u) {
-        visited[u] = true;
-      });
     }
   });
 }
 
-visited[program.url] = true;
 crawl(program.url);
