@@ -1,4 +1,5 @@
-// Uses the request api https://github.com/mikeal/request
+// Uses the request api 
+// https://github.com/mikeal/request
 
 var request = require('request');
 
