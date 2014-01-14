@@ -16,7 +16,14 @@ var post_data = function(url, json) {
   });
 };
 
-var get_data = function() {
+var get_data = function(url, obj) {
+  request(url, function(err, res, body) {
+    if (err) console.log(err);
+    else {
+      console.log(body);
+      obj = JSON.parse(body);
+    }
+  });
 };
 
 var post_with_auth = function() {
