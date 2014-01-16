@@ -29,8 +29,8 @@ var get_data = function(url) {
   });
 };
 
-var post_with_auth = function() {
+var post_with_auth = function(oauth, url, json) {
 };
 
-var get_with_auth = function() {
+var get_with_auth = function(oauth, url) {
 };
