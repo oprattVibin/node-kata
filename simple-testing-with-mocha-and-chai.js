@@ -7,8 +7,9 @@
 var should = require('chai').should();
 
 describe('Array', function() {
+  var array = [];
   before(function() {
-    var array = [1, 2, 3];
+    array = [1, 2, 3];
   });
   
   describe('#indexOf()', function() {
@@ -17,7 +18,7 @@ describe('Array', function() {
     });
   });
   
-  describe('#length', fucntion() {
+  describe('#length', function() {
     it('should return the exact length of elements', function() {
       array.should.have.length(3);
     });
@@ -29,4 +30,3 @@ describe('Array', function() {
     });
   });
 });
-
