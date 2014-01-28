@@ -2,3 +2,16 @@
 // Can be use both on frontend or with node
 // install sugar.js
 // npm/bower install sugar
+
+
+// Few nice date examples
+var date = new Date();
+console.log(date);
+date.addMinutes(20);
+console.log(date);
+date.addHours(2);
+console.log(date);
+date.addDays(7);
+console.log(date);
+
+var dateRange = Date.range("2013-01-01", "2014-01-01");
