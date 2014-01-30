@@ -20,3 +20,6 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 "string".chars(function(c) {
   console.log(c);
 });
+
+"string".each(function(c) { console.log(c); });
+"string".each(/[0-9]/, function(c) { console.log("found number: ", c); });
