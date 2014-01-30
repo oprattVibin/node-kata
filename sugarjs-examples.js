@@ -15,3 +15,5 @@ date.addDays(7);
 console.log(date);
 
 var dateRange = Date.range("2013-01-01", "2014-01-01");
+
+"string".chars() // => ['s', 't', 'r', 'i', 'n', 'g']
