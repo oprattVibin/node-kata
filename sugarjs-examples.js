@@ -27,3 +27,6 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 "string".endsWith("ing");
 
 "<a>Hello & Goodbye</p>".escapeHTML();
+
+// Think has() as contains()
+"string".has("tri") // => true
