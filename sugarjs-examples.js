@@ -30,3 +30,11 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 
 // Think has() as contains()
 "string".has("tri") // => true
+
+"         ".isBlank() // => true
+
+// pluraize -> similar to the rails pluraize
+"goose".pluralize() // => geese
+"potato".pluralize() // => potatoes
+
+
