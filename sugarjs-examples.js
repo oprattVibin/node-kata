@@ -42,3 +42,7 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 // Get a random number between ranges
 Number.random(10, 20);
 
+Number.range(5, 10).every(function (n) {
+  console.log(n);
+});
+
