@@ -46,3 +46,9 @@ Number.range(5, 10).every(function (n) {
   console.log(n);
 });
 
+// Abbreviated numbers
+// Good for things like showing number of tweets or likes
+(1000).abbr(); // => 1K
+(1000000).abbr(); // => 1M
+
+(65).chr(); // => 'A'
