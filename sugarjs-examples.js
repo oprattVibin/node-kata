@@ -29,12 +29,16 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 "<a>Hello & Goodbye</p>".escapeHTML();
 
 // Think has() as contains()
-"string".has("tri") // => true
+"string".has("tri");// => true
 
 "         ".isBlank() // => true
 
 // pluraize -> similar to the rails pluraize
-"goose".pluralize() // => geese
-"potato".pluralize() // => potatoes
+"goose".pluralize(); // => geese
+"potato".pluralize(); // => potatoes
 
+// Numbers
+
+// Get a random number between ranges
+Number.random(10, 20);
 
