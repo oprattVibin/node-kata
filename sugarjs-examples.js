@@ -52,3 +52,7 @@ Number.range(5, 10).every(function (n) {
 (1000000).abbr(); // => 1M
 
 (65).chr(); // => 'A'
+
+
+// Arrays
+["hello", "world", "how"].map('length') // => [5, 5, 3]
