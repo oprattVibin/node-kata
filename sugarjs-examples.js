@@ -56,3 +56,6 @@ Number.range(5, 10).every(function (n) {
 
 // Arrays
 ["hello", "world", "how"].map('length') // => [5, 5, 3]
+['a', 'b', 'c', 'd', 'e'].forEach(function (c) {
+  console.log(c);
+});
