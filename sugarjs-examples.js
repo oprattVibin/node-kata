@@ -59,3 +59,5 @@ Number.range(5, 10).every(function (n) {
 ['a', 'b', 'c', 'd', 'e'].forEach(function (c) {
   console.log(c);
 });
+
+[1,null,2,undefined,3].compact() // => [1, 2, 3]
