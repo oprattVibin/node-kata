@@ -61,3 +61,6 @@ Number.range(5, 10).every(function (n) {
 });
 
 [1,null,2,undefined,3].compact() // => [1, 2, 3]
+
+['a', 'b', 'c'].count(/b/) // => 1
+[1, 2, 1, 1, 3, 2, 2, 1].count(1) // => 4
