@@ -78,3 +78,10 @@ Number.range(5, 10).every(function (n) {
   return n > 5;
 }); // => [5, 7, 8]
 
+// Good for string searching in an array of strings
+[1, 2, 3, 4, 4].find(1);
+[1, 2, 3, 4, 4].findAll(4);
+[1, 2, 4, 4, 5, 7, 8].findAll(function (n){
+  return n >= 5;
+});
+
