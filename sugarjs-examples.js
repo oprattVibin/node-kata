@@ -88,3 +88,6 @@ Number.range(5, 10).every(function (n) {
 [1, 2, [3, 3, [4, 4], [2, 3, 4]], [1 , 2]].flatten(); // => [1, 2, 3, 3, 4, 4, 2, 3, 4, 1, 2]
 
 ["hello", "to", "you", "man"].groupBy('length'); // => { '2': [ 'to' ],  '3': [ 'you', 'man' ],  '5': [ 'hello' ] }
+["boy", "ball", "cat"].groupBy(function (n) {
+  return n[0];
+}); // => { b: [ 'boy', 'ball' ],  c: [ 'cat' ] }
