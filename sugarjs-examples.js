@@ -68,3 +68,8 @@ Number.range(5, 10).every(function (n) {
 
 ['a', 'b', 'c'].count(/b/) // => 1
 [1, 2, 1, 1, 3, 2, 2, 1].count(1) // => 4
+
+[6, 7, 8, 9].every(function (n) {
+  return n > 5;
+}); // => true
+
