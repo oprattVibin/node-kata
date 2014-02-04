@@ -73,3 +73,8 @@ Number.range(5, 10).every(function (n) {
   return n > 5;
 }); // => true
 
+[1, 2, 2, 3].filter(2) // => [2, 2,]
+[1, 2, 4, 4, 5, 7, 8].filter(function (n){
+  return n > 5;
+}); // => [5, 7, 8]
+
