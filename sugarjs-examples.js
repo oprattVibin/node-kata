@@ -91,3 +91,6 @@ Number.range(5, 10).every(function (n) {
 ["boy", "ball", "cat"].groupBy(function (n) {
   return n[0];
 }); // => { b: [ 'boy', 'ball' ],  c: [ 'cat' ] }
+
+[].isEmpty() // => true
+[null, undefined].isEmpty() // => true
