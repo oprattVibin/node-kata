@@ -24,7 +24,7 @@ var dateRange = Date.range("2013-01-01", "2014-01-01");
 "string".each(function(c) { console.log(c); });
 "string".each(/[0-9]/, function(c) { console.log("found number: ", c); });
 
-"string".endsWith("ing");
+"string".endsWith("ing"); // => true
 
 "<a>Hello & Goodbye</p>".escapeHTML();
 
@@ -94,3 +94,7 @@ Number.range(5, 10).every(function (n) {
 
 [].isEmpty() // => true
 [null, undefined].isEmpty() // => true
+
+[1, 2, 3].map(function (n){
+  return n * n;
+}); // => [1, 4, 9]
