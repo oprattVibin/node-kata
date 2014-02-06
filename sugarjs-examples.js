@@ -98,3 +98,9 @@ Number.range(5, 10).every(function (n) {
 [1, 2, 3].map(function (n){
   return n * n;
 }); // => [1, 4, 9]
+
+[1, 2, 3, 4].randomize();
+
+[1, 2, 3, 4].reduce(function (a, b) {
+  return a + b;
+}); // => 10
