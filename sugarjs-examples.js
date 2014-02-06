@@ -104,3 +104,10 @@ Number.range(5, 10).every(function (n) {
 [1, 2, 3, 4].reduce(function (a, b) {
   return a + b;
 }); // => 10
+
+// Returns a random element
+[1, 2, 3, 4].sample();
+
+// Returns n random element
+[1, 2, 3, 4].sample(2);
+
