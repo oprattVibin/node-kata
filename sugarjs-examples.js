@@ -111,3 +111,6 @@ Number.range(5, 10).every(function (n) {
 // Returns n random element
 [1, 2, 3, 4].sample(2);
 
+// Object examples
+Object.fromQueryString('foo=broken&bar=baz') // => { "foo": "broken", "bar": "baz" }
+Object.fromQueryString('arr[]=1&arr[]=2&arr[]3') // => { "arr": ["1", "2", "3"] }
