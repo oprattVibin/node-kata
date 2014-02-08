@@ -16,7 +16,14 @@ console.log(date);
 
 var dateRange = Date.range("2013-01-01", "2014-01-01");
 
+Date.create('today').isAfter('yesterday'); // => true
+Date.create('today').isBefore('tomorrow'); // => true
+Date.create('today').isBetween('yesterday', 'tomorrow'); // => true
+
 var date = Date.create("2014-01-01"); // => date = 2014-01-01
+date.iso() // returns iso date format
+
+
 
 "string".chars(); // => ['s', 't', 'r', 'i', 'n', 'g']
 "string".chars(function(c) {
