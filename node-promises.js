@@ -31,3 +31,7 @@ function one(arg1, callback) {
 function two(arg1) {
   var result = one(arg1);
 }
+
+// Scenario #2
+// Need to call functions sequentially that
+// take callbacks as parameters
