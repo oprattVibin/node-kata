@@ -29,7 +29,9 @@ function one(arg1, callback) {
 
 // In order to get the result no need to pass a callback
 function two(arg1) {
-  var result = one(arg1);
+  one(arg1).then(function (res){
+    
+  }).done();
 }
 
 // Scenario #2
