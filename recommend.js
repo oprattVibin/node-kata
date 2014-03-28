@@ -1,17 +1,16 @@
 // Simple recommendation system in node
 // Inspiration from: http://otobrglez.opalab.com/ruby/2014/03/23/simple-ruby-recommendation-system.html
+require('sugar');
 
 // Read book titles from a file (create the corpus)
 function createCorpus(path) {
   var fs = require('fs');
   
-  fs.readFile(path, 'utcf8', function (err, data){
-    if (err) {
-      return console.log(err);
-    }
-    
-    // Read file line by line
-  });
+  var list = fs.readFileSync(path).toString().split("\n");
+  
+  list.each(function (title){
+    // compute the jaccard index
+  })
 }
 
 // Based on a book title, recommend other titles
