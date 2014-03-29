@@ -2,15 +2,26 @@
 // Inspiration from: http://otobrglez.opalab.com/ruby/2014/03/23/simple-ruby-recommendation-system.html
 require('sugar');
 
-// Read book titles from a file (create the corpus)
-function createCorpus(path) {
+// Read book titles from a file (corpus file)
+function createCorpus(path, title) {
   var fs = require('fs');
   
   var list = fs.readFileSync(path).toString().split("\n");
   
-  list.each(function (title){
-    // compute the jaccard index
-  })
+  // object to save book_title and it's corresponding index
+  var map = {};
+  
+  list.each(function (book_title){
+    // Compute union of title and book_title
+    var aub = union(book_title, title);
+    // Compute intersection of title and book_title
+    var anb = intersection(book_title, title);
+    
+    // Jaccard index, J(A, B) = A n B / A u B
+    map[book_title] = anb / aub;
+  });
+  
+  return map;
 }
 
 // Based on a book title, recommend other titles
