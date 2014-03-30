@@ -32,9 +32,12 @@ function recommend(title) {
 // from a sentence (book title in this case)
 function words(sentence) {
   var words = sentence.words(function (w) {
-    if (w.length > 2)
-      return w.toLowerCase();
+    return w.toLowerCase();
   }).sortBy();
+  words = words.map(function (w) {
+    if (w.length > 2)
+      return w;
+  });
   
   return words;
 }
