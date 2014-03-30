@@ -27,3 +27,12 @@ function createCorpus(path, title) {
 // Based on a book title, recommend other titles
 function recommend(title) {
 }
+
+// Create a list of unique words of length greater than 2
+// from a sentence (book title in this case)
+function words(sentence) {
+  var words = sentence.words(function (w) {
+    if (w.length > 2)
+      return n.toLowerCase();
+  }).sortBy();
+}
