@@ -33,6 +33,6 @@ function recommend(title) {
 function words(sentence) {
   var words = sentence.words(function (w) {
     if (w.length > 2)
-      return n.toLowerCase();
+      return w.toLowerCase();
   }).sortBy();
 }
