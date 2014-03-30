@@ -35,4 +35,6 @@ function words(sentence) {
     if (w.length > 2)
       return w.toLowerCase();
   }).sortBy();
+  
+  return words;
 }
