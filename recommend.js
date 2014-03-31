@@ -3,6 +3,11 @@
 // Also, was trying to write some code that highlights the awesomeness of sugar.js
 require('sugar');
 
+// Based on a book title, recommend other titles
+function recommend(title, corpus_path) {
+  
+}
+
 // Read book titles from a file (corpus file)
 function createCorpus(path, title) {
   var fs = require('fs');
@@ -10,23 +15,31 @@ function createCorpus(path, title) {
   var list = fs.readFileSync(path).toString().split("\n");
   
   // object to save book_title and it's corresponding index
-  var map = {};
+  var map = [];
   
   list.each(function (book_title){
+    var obj = {};
+    obj.title = book_title;
     // Compute union of title and book_title
-    var aub = union(book_title, title);
+    var a = words(book_title);
+    var b = words(title);
+    var aub = union(a, b);
     // Compute intersection of title and book_title
-    var anb = intersection(book_title, title);
+    var anb = intersection(a, b);
     
     // Jaccard index, J(A, B) = A n B / A u B
-    map[book_title] = anb / aub;
+    if (aub === 0) {
+      obj.index = 0.0;
+    } else {
+      obj.index = anb / aub;
+    }
+    
+    map.push(obj);
   });
   
-  return map;
-}
-
-// Based on a book title, recommend other titles
-function recommend(title) {
+  return map.sortBy(function (n){
+    return -n.index; // sort descending
+  });
 }
 
 // Create a list of unique words of length greater than 2
