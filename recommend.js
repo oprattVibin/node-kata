@@ -33,7 +33,7 @@ function recommend(title) {
 function words(sentence) {
   var words = sentence.words(function (w) {
     return w.toLowerCase();
-  }).sortBy();
+  }).unique().sortBy();
   words = words.map(function (w) {
     if (w.length > 2)
       return w;
