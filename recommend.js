@@ -4,12 +4,24 @@
 require('sugar');
 
 // Based on a book title, recommend other titles
-function recommend(title, corpus_path) {
+function recommend(corpus_path, title) {
+  // Create the index from the corpus
+  var indexes = indexCorpus(corpus_path, title);
   
+  // Return all titles with index greater than 0.5
+  var recommendations = indexes.filter(function (n){
+    if (n.index > 0.5)
+      return n;
+  });
+  
+  return recommendations.reduce(function (head, tail){
+    head.push(tail.title);
+    return head;
+  }, []);
 }
 
 // Read book titles from a file (corpus file)
-function createCorpus(path, title) {
+function indexCorpus(path, title) {
   var fs = require('fs');
   
   var list = fs.readFileSync(path).toString().split("\n");
