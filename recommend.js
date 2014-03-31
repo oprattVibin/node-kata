@@ -42,3 +42,13 @@ function words(sentence) {
   
   return words;
 }
+
+// Compute union of two lists
+function union(a, b) {
+  return a.union(b).length;
+}
+
+// Compute intersection of two lists
+function intersection(a, b) {
+  return a.intersect(b).length;
+}
