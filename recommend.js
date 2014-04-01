@@ -10,7 +10,7 @@ function recommend(corpus_path, title) {
   
   // Return all titles with index greater than 0.5
   var recommendations = indexes.filter(function (n){
-    if (n.index > 0.5)
+    if (n.index >= 0.5)
       return n;
   });
   
