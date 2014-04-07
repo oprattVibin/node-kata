@@ -1,6 +1,7 @@
 // Simple recommendation system in node
 // Inspiration from: http://otobrglez.opalab.com/ruby/2014/03/23/simple-ruby-recommendation-system.html
 // Also, was trying to write some code that highlights the awesomeness of sugar.js
+// TODO: move this to become it's own node project
 require('sugar');
 
 // Based on a book title, recommend other titles
