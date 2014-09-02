@@ -3,7 +3,7 @@
 var q = require('q');
 
 // method 1
-var readFile = q.node(fs.readFile);
+var readFile = q.denodeify(fs.readFile);
 readFile('test.txt')
 .then(function (data) { console.log(data); });
 
