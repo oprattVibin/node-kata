@@ -6,6 +6,9 @@ var q = require('q');
 var readFile = q.denodeify(fs.readFile);
 readFile('test.txt')
 .then(function (data) { console.log(data); });
+// if more nested callbacks:
+// .then(anotherFunction)
+// .then(anotherFunction2) ... etc
 
 // method 2
 q.ncall(fs.readFile, fs, 'test.txt')
