@@ -7,13 +7,18 @@ var q = require('q');
 
 var url = process.argv[2]; // read url from stdin
 
+function result(res) {
+  var deferred = q.defer();
+  res.on('data', deferred.node());
+  return deferred.promise;
+}
+
 var get = q.nodeify(http.get);
 get(url)
-.then(function(res) {
+.then(result)
+.then(function (body))
   var data = '';
-  res.on('data', function (body){
-    data += body; // essentially converts binary to string
-    console.log(data) // print JSON data
-    var obj = JSON.parse(data);
-  });
+  data += body;
+  console.log(data);
+  var obj = JSON.parse(data);
 });
