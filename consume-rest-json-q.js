@@ -16,7 +16,7 @@ function result(res) {
 var get = q.nodeify(http.get);
 get(url)
 .then(result)
-.then(function (body))
+.then(function (body) {
   var data = '';
   data += body;
   console.log(data);
