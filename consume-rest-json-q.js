@@ -3,10 +3,13 @@
 
 var http = require('http'); // for https use require('https')
 var util = require('util');
+var q = require('q');
 
 var url = process.argv[2]; // read url from stdin
 
-http.get(url, function(res) {
+var get = q.nodeify(http.get);
+get(url)
+.then(function(res) {
   var data = '';
   res.on('data', function (body){
     data += body; // essentially converts binary to string
