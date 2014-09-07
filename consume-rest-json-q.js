@@ -13,7 +13,7 @@ function result(res) {
   return deferred.promise;
 }
 
-var get = q.nodeify(http.get);
+var get = q.denodeify(http.get);
 get(url)
 .then(result)
 .then(function (body) {
