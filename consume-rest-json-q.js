@@ -8,8 +8,13 @@ var q = require('q');
 // var url = process.argv[2]; // read url from stdin
 var url = 'http://time.jsontest.com/';
 
-var get = q.denodeify(http.get);
-get(url).then(function (res) {
+var httpGet = function (url) {
+  var deferred = q.defer();
+  http.get(url, deferred.resolve);
+  return deferred.promise;
+}
+
+httpGet(url).then(function (res) {
   res.on('data', function (body) {
     var data = '';
     data += body;
