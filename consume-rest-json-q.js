@@ -5,7 +5,8 @@ var http = require('http'); // for https use require('https')
 var util = require('util');
 var q = require('q');
 
-var url = process.argv[2]; // read url from stdin
+// var url = process.argv[2]; // read url from stdin
+var url = 'http://time.jsontest.com/';
 
 function result(res) {
   var deferred = q.defer();
@@ -14,9 +15,7 @@ function result(res) {
 }
 
 var get = q.denodeify(http.get);
-get(url)
-.then(result)
-.then(function (body) {
+get(url).then(result).then(function (body) {
   var data = '';
   data += body;
   console.log(data);
