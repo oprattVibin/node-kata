@@ -1,154 +1,125 @@
-// TODO: Currently a max heap
-// Add capabilities to convert it to either min or max heap
-class Heap
-{
-  int[] heap;
-  int sz = 0;
-  
-  public Heap(int[] array)
+function Heap(array) {
+  this.sz = array.length;
+  this.heap = array;
+  for (i = this.sz - 1; i >= 0; i--)
+    this.heapify(i);
+}
+
+Heap.prototype.heapify(i) {
+  var j = this.maxKids(i);
+  if (j != -1 && j < this.sz)
   {
-    sz = array.Length;
-    // compute the closest power of 2 for the array
-    var n = (int) Math.Ceiling(Math.Log(sz, 2));
-    
-    // use a binary size to have a balanced tree
-    heap = new int[1 << n];
-    for (int i = 0; i < sz; i++)
-      heap[i] = array[i];
-    for (int i = sz - 1; i >= 0; i--)
-      Heapify(i);
+    this.swap(i, j);
+    this.heapify(j);
   }
+}
+
+Heap.prototype.left(i) {
+  var left = 2 * i + 1;
+  if (left < this.sz)
+    return this.heap[left];
+  return -1;
+}
+
+Heap.prototype.right(i) {
+  var right = 2 * i + 2;
+  if (right < this.sz)
+    return this.heap[right];
+  return -1;
+}
+
+Heap.prototype.insert(value) {
+  if (this.sz < this.heap.length)
+    heap[this.sz] = value;
+  this.bubble(this.sz++);
+}
+
+Heap.prototype.bubble(i) {
+  if (i == 0) return;
+  var parent = i / 2;
+  if (this.heap[i] > this.heap[parent]) {
+    this.swap(i, parent);
+    this.bubble(parent);
+  }
+}
+
+Heap.prototype.hasKids(i) {
+  var left = 2 * i + 1;
+  var right = 2 * i + 2;
   
-  void Heapify(int i)
+  return (right < this.sz) || (left < this.sz);
+}
+
+Heap.prototype.maxKids(i) {
+  var index = -1;
+  var max = this.heap[i];
+  if (this.hasKids(i))
   {
-    int j = MaxKids(i);
-    if (j != -1 && j < sz)
-    {
-      swap(i, j);
-      Heapify(j);
+    var left = this.left(i);
+    if (left > max) {
+      index = 2 * i + 1;
+      max = left;
+    }
+    var right = this.right(i);
+    if (right > max) {
+      index = 2 * i + 2;
     }
   }
+  return index;
+}
+
+Heap.prototype.swap(a, b) {
+  var temp = this.heap[a];
+  this.heap[a] = this.heap[b];
+  this.heap[b] = temp;
+}
+
+Heap.prototype.getMax() {
+  if (this.sz > 0)
+    return this.heap[0];
+  return -1;
+}
+
+Heap.prototype.find(value) {
+  var index = -1;
+  for (var i = 0; i < this.sz; i++)
+    if (this.heap[i] == value)
+      return i;
+  return index;
+}
+
+Heap.prototype.delete(value) {
+  var i = this.fiind(value);
   
-  int Left(int i)
+  if (i != -1 && i < this.sz)
   {
-    int left = 2 * i + 1;
-    if (left < sz)
-      return heap[left];
-    return -1; // throw ArrayOutOfBoundException
+    this.swap(i, this.sz - 1);
+    this.sz--;
+    this.heapify(i);
   }
-  
-  int Right(int i)
+}
+
+Heap.prototype.sort() {
+  var restoreSz = this.sz;
+  for (this.sz = this.sz - 1; this.sz > 0; this.sz--)
   {
-    int right = 2 * i + 2;
-    if (right < sz)
-      return heap[right];
-    return -1; // throw ArrayOutOfBoundException
+    this.swap(0, this.sz);
+    this.heapify(0);
   }
-  
-  public void Insert(int value)
+  this.sz = restoreSz;
+}
+
+Heap.prototype.print() {
+  for (var i = 0; i < this.sz; i++)
   {
-    if (sz < heap.Length)
-      heap[sz] = value;
-    Bubble(sz++);
+    console.log(this.heap[i] + " ");
   }
-  
-  void Bubble(int i)
-  {
-    if (i == 0) return;
-    int parent = i / 2;
-    if (heap[i] > heap[parent]) {
-      swap(i, parent);
-      Bubble(parent);
-    }
-  }
-  
-  bool HasKids(int i)
-  {
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-    
-    return (right < sz) || (left < sz);
-  }
-  
-  int MaxKids(int i)
-  {
-    int index = -1;
-    int max = heap[i];
-    if (HasKids(i))
-    {
-      int left = Left(i);
-      if (left > max) {
-        index = 2 * i + 1;
-        max = left;
-      }
-      int right = Right(i);
-      if (right > max) {
-        index = 2 * i + 2;
-      }
-    }
-    return index;
-  }
-  
-  void swap(int a, int b)
-  {
-    int temp = heap[a];
-    heap[a] = heap[b];
-    heap[b] = temp;
-  }
-  
-  int GetMax()
-  {
-    if (sz > 0)
-      return heap[0];
-    return -1; // throw ArrayOutofBoundException
-  }
-  
-  int Find(int value)
-  {
-    int index = -1;
-    for (int i = 0; i < sz; i++)
-      if (heap[i] == value)
-        return i;
-    return index;
-  }
-  
-  public void Delete(int value)
-  {
-    int i = Find(value);
-    
-    if (i != -1 && i < sz)
-    {
-      swap(i, sz - 1);
-      sz--;
-      Heapify(i);
-    }
-  }
-  
-  public void Sort()
-  {
-    int restoreSz = sz;
-    for (sz = sz - 1; sz > 0; sz--)
-    {
-      swap(0, sz);
-      Heapify(0);
-    }
-    sz = restoreSz;
-  }
-  
-  public void Print()
-  {
-    for (int i = 0; i < sz; i++)
-    {
-      Console.Write(heap[i] + " ");
-    }
-    Console.WriteLine();
-  }
-  
-  public void Merge(int[] array)
-  {
-    for (int i = 0; i < array.Length; i++)
-      heap[sz++] = array[i];
-    for (int i = sz - 1; i >= 0; i--)
-      Heapify(i);
-  }
+  console.log("\n");
+}
+
+Heap.prototype.merge(array) {
+  for (var i = 0; i < array.length; i++)
+    this.heap[this.sz++] = array[i];
+  for (var i = this.sz - 1; i >= 0; i--)
+    this.heapify(i);
 }
