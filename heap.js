@@ -5,7 +5,7 @@ function Heap(array) {
     this.heapify(i);
 }
 
-Heap.prototype.heapify(i) {
+Heap.prototype.heapify = function(i) {
   var j = this.maxKids(i);
   if (j != -1 && j < this.sz)
   {
@@ -14,27 +14,27 @@ Heap.prototype.heapify(i) {
   }
 }
 
-Heap.prototype.left(i) {
+Heap.prototype.left = function(i) {
   var left = 2 * i + 1;
   if (left < this.sz)
     return this.heap[left];
   return -1;
 }
 
-Heap.prototype.right(i) {
+Heap.prototype.right = function(i) {
   var right = 2 * i + 2;
   if (right < this.sz)
     return this.heap[right];
   return -1;
 }
 
-Heap.prototype.insert(value) {
+Heap.prototype.insert = function(value) {
   if (this.sz < this.heap.length)
     heap[this.sz] = value;
   this.bubble(this.sz++);
 }
 
-Heap.prototype.bubble(i) {
+Heap.prototype.bubble = function(i) {
   if (i == 0) return;
   var parent = i / 2;
   if (this.heap[i] > this.heap[parent]) {
@@ -43,14 +43,14 @@ Heap.prototype.bubble(i) {
   }
 }
 
-Heap.prototype.hasKids(i) {
+Heap.prototype.hasKids = function(i) {
   var left = 2 * i + 1;
   var right = 2 * i + 2;
   
   return (right < this.sz) || (left < this.sz);
 }
 
-Heap.prototype.maxKids(i) {
+Heap.prototype.maxKids = function(i) {
   var index = -1;
   var max = this.heap[i];
   if (this.hasKids(i))
@@ -68,19 +68,19 @@ Heap.prototype.maxKids(i) {
   return index;
 }
 
-Heap.prototype.swap(a, b) {
+Heap.prototype.swap = function(a, b) {
   var temp = this.heap[a];
   this.heap[a] = this.heap[b];
   this.heap[b] = temp;
 }
 
-Heap.prototype.getMax() {
+Heap.prototype.getMax = function() {
   if (this.sz > 0)
     return this.heap[0];
   return -1;
 }
 
-Heap.prototype.find(value) {
+Heap.prototype.find = function(value) {
   var index = -1;
   for (var i = 0; i < this.sz; i++)
     if (this.heap[i] == value)
@@ -88,7 +88,7 @@ Heap.prototype.find(value) {
   return index;
 }
 
-Heap.prototype.delete(value) {
+Heap.prototype.delete = function(value) {
   var i = this.fiind(value);
   
   if (i != -1 && i < this.sz)
@@ -99,7 +99,7 @@ Heap.prototype.delete(value) {
   }
 }
 
-Heap.prototype.sort() {
+Heap.prototype.sort = function() {
   var restoreSz = this.sz;
   for (this.sz = this.sz - 1; this.sz > 0; this.sz--)
   {
@@ -109,7 +109,7 @@ Heap.prototype.sort() {
   this.sz = restoreSz;
 }
 
-Heap.prototype.print() {
+Heap.prototype.print = function() {
   for (var i = 0; i < this.sz; i++)
   {
     console.log(this.heap[i] + " ");
@@ -117,7 +117,7 @@ Heap.prototype.print() {
   console.log("\n");
 }
 
-Heap.prototype.merge(array) {
+Heap.prototype.merge = function(array) {
   for (var i = 0; i < array.length; i++)
     this.heap[this.sz++] = array[i];
   for (var i = this.sz - 1; i >= 0; i--)
