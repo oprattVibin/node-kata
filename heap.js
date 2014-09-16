@@ -1,7 +1,7 @@
 function Heap(array) {
   this.sz = array.length;
   this.heap = array;
-  for (i = this.sz - 1; i >= 0; i--)
+  for (var i = this.sz - 1; i >= 0; i--)
     this.heapify(i);
 }
 
