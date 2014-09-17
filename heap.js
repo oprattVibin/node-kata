@@ -110,11 +110,7 @@ Heap.prototype.sort = function() {
 }
 
 Heap.prototype.print = function() {
-  for (var i = 0; i < this.sz; i++)
-  {
-    console.log(this.heap[i] + " ");
-  }
-  console.log("\n");
+  console.log(this.heap);
 }
 
 Heap.prototype.merge = function(array) {
