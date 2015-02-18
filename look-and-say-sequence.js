@@ -1,8 +1,14 @@
 var assert = require('assert');
 
+var cache = {};
+
 function look(n) {
-  if (n == 0) {
+  if (n <= 0) {
     return '1';
+  }
+  
+  if (cache[n]) {
+    return cache[n];
   }
 
   var p = look(n - 1),
@@ -19,7 +25,9 @@ function look(n) {
       count = 1;
     }
   }
-  return result + count + c;
+  result += count + c;
+  cache[n] = result;
+  return result;
 }
 
 for (var i = 0; i <= 10; i++) {
