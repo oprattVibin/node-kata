@@ -1,6 +1,8 @@
+var assert = require('assert');
+
 function look(n) {
   if (n == 0) {
-    return "1";
+    return '1';
   }
 
   var p = look(n - 1),
@@ -21,5 +23,9 @@ function look(n) {
 }
 
 for (var i = 0; i <= 10; i++) {
-  console.log(i + " => " + look(i));
+  console.log(i, ' => ', look(i));
 }
+
+assert.equal(look(0), '1');
+assert.equal(look(1), '11');
+assert.equal(look(10), '11131221133112132113212221');
