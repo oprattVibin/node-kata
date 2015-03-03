@@ -1,6 +1,6 @@
 // http://jsfiddle.net/owv4Lcrs/
 
-function add(a, b) {
+function add1(a, b) {
     if (typeof b == 'undefined') {
         return function (x) {
             return a + x;
@@ -9,7 +9,7 @@ function add(a, b) {
     return a + b;
 }
 
-function _add(a, b) {
+function add2(a, b) {
     if (arguments.length < 1) {
         return _add;
     }
@@ -21,6 +21,12 @@ function _add(a, b) {
     }
     
     return a + b;
+}
+
+function add3(a) {
+    return function(b) {
+        return a + b;
+    }
 }
 
 console.log(add(2, 5));
