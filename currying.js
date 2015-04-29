@@ -1,4 +1,4 @@
-http://jsfiddle.net/owv4Lcrs/1/
+// http://jsfiddle.net/owv4Lcrs/1/
 
 function add(a, b) {
     if (typeof b == 'undefined') {
