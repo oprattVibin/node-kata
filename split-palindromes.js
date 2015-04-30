@@ -2,15 +2,11 @@ function isPalindrome(str) {
   var s = 0,
   e = str.length - 1;
 
-  while (s < e) {
-    if (str[s] !== str[e]) {
-      return false;
-    }
-    s++;
-    e--;
+  while (s < e && str[s] === str[e]) {
+    s++; e--;
   }
 
-  return true;
+  return str[s] === str[e];
 }
 
 function splitPalindrome(str) {
